@@ -1,0 +1,26 @@
+# render.yaml - Ubuntu on Browser on Render
+# Generated for codestorm-official/ubuntu-on-browser
+# This Blueprint deploys a full Ubuntu container via Dockerfile with ttyd browser terminal
+
+services:
+  - type: web
+    name: ubuntu-on-browser
+    runtime: docker
+    env: null
+    plan: free
+    buildCommand: docker build -t ubuntu-on-browser .
+    startCommand: /bin/bash -c "/bin/ttyd -p ${PORT:-8080} -c ${USERNAME:-admin}:${PASSWORD:-admin} /bin/bash"
+    envVars:
+      - key: UBUNTU_VERSION
+        value: "22.04"
+      - key: USERNAME
+        value: "admin"
+      - key: PASSWORD
+        value: "admin"
+      - key: PORT
+        value: "8080"
+    healthCheckPath: /
+    autoDeploy: true
+
+databases: []
+keyvalue: []
