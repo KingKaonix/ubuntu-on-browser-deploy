@@ -9,7 +9,6 @@ services:
     env: null
     plan: free
     buildCommand: docker build -t ubuntu-on-browser .
-    startCommand: /bin/bash -c "/bin/ttyd -p ${PORT:-8080} -c ${USERNAME:-admin}:${PASSWORD:-admin} /bin/bash"
     envVars:
       - key: UBUNTU_VERSION
         value: "22.04"
