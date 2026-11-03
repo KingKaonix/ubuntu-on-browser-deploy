@@ -22,5 +22,3 @@ services:
     healthCheckPath: /
     autoDeploy: true
 
-databases: []
-keyvalue: []
